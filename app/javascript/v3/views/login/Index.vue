@@ -219,36 +219,56 @@ export default {
 </script>
 
 <template>
-  <main class="relative flex items-center justify-center w-full min-h-screen overflow-hidden bg-[#020817]">
+  <main class="relative flex items-center justify-center w-full min-h-screen overflow-hidden bg-[#020817] font-mono">
+
+    <!-- Scanline overlay -->
+    <div class="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(14,165,233,0.012)_2px,rgba(14,165,233,0.012)_4px)] pointer-events-none z-10" />
+
     <!-- Background glow orbs -->
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
-    <div class="absolute bottom-0 left-1/4 w-80 h-80 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none" />
-    <div class="absolute top-1/3 right-1/4 w-64 h-64 bg-blue-400/15 rounded-full blur-3xl pointer-events-none" />
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
+    <div class="absolute bottom-0 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+    <div class="absolute top-1/2 right-0 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl pointer-events-none" />
 
     <!-- Grid overlay -->
-    <div class="absolute inset-0 bg-[linear-gradient(rgba(14,165,233,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(14,165,233,0.06)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none" />
+    <div class="absolute inset-0 bg-[linear-gradient(rgba(14,165,233,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(14,165,233,0.04)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none" />
 
-    <!-- Centered card -->
-    <div class="relative z-10 w-full max-w-md px-6 py-12">
+    <!-- HUD Top bar -->
+    <div class="absolute top-0 left-0 right-0 flex items-center justify-between px-6 py-3 border-b border-cyan-500/10 z-20">
+      <div class="flex items-center gap-2">
+        <div class="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.9)]" />
+        <span class="text-xs text-cyan-400/50 tracking-[0.2em] uppercase">Sistema Ativo</span>
+      </div>
+      <span class="text-xs text-cyan-400/30 tracking-widest">FDT-SYS // v2.0</span>
+      <div class="flex items-center gap-2">
+        <span class="text-xs text-cyan-400/50 tracking-[0.2em] uppercase">Conexão Segura</span>
+        <div class="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_8px_rgba(74,222,128,0.9)]" />
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="relative z-20 w-full max-w-md px-6 py-12">
 
       <!-- Logo + Title -->
-      <div class="mb-10 text-center">
-        <div class="inline-flex items-center justify-center w-16 h-16 mb-6 rounded-2xl bg-blue-600/20 ring-1 ring-blue-500/40 shadow-lg shadow-blue-500/20">
-          <img
-            :src="globalConfig.logo"
-            :alt="globalConfig.installationName"
-            class="w-9 h-9 object-contain"
-          />
+      <div class="mb-8 text-center">
+        <div class="relative inline-flex items-center justify-center mb-6">
+          <div class="absolute w-20 h-20 rounded-full border border-cyan-500/20 animate-ping opacity-30" />
+          <div class="absolute w-24 h-24 rounded-full border border-blue-500/15" />
+          <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-600/20 ring-1 ring-cyan-500/40 shadow-[0_0_30px_rgba(14,165,233,0.2)]">
+            <img
+              :src="globalConfig.logo"
+              :alt="globalConfig.installationName"
+              class="w-8 h-8 object-contain"
+            />
+          </div>
         </div>
-        <h1 class="text-3xl font-bold tracking-tight text-white">
+        <h1 class="text-3xl font-bold tracking-widest text-white uppercase">
           {{ globalConfig.installationName }}
         </h1>
-        <p class="mt-2 text-sm font-medium tracking-widest uppercase text-cyan-400/80">
-          {{ replaceInstallationName($t('LOGIN.TITLE')) }}
+        <p class="mt-2 text-xs tracking-[0.4em] uppercase text-cyan-400/60">
+          ── acesso ao sistema ──
         </p>
-        <p v-if="showSignupLink" class="mt-3 text-sm text-slate-400">
-          {{ $t('COMMON.OR') }}
-          <router-link to="auth/signup" class="font-medium text-cyan-400 hover:text-cyan-300 transition-colors">
+        <p v-if="showSignupLink" class="mt-3 text-xs text-cyan-400/40 tracking-wider">
+          <router-link to="auth/signup" class="text-cyan-400/70 hover:text-cyan-300 transition-colors">
             {{ $t('LOGIN.CREATE_NEW_ACCOUNT') }}
           </router-link>
         </p>
@@ -263,91 +283,117 @@ export default {
         />
       </div>
 
-      <!-- Login card -->
-      <div
-        v-else
-        class="rounded-2xl border border-blue-500/20 bg-slate-900/70 backdrop-blur-xl p-8 shadow-2xl shadow-blue-500/10 ring-1 ring-white/5"
-        :class="{ 'animate-wiggle': loginApi.hasErrored }"
-      >
-        <div v-if="!email">
-          <div class="flex flex-col gap-4 mb-5">
-            <GoogleOAuthButton v-if="showGoogleOAuth" />
-            <div v-if="showSamlLogin" class="text-center">
-              <router-link
-                to="/app/login/sso"
-                class="inline-flex justify-center w-full px-4 py-3 items-center rounded-xl bg-slate-800 border border-blue-500/20 hover:border-cyan-500/40 hover:bg-slate-700/80 transition-all duration-200 focus:outline-none"
-              >
-                <Icon icon="i-lucide-lock-keyhole" class="size-5 text-cyan-400" />
-                <span class="ml-2 text-base font-medium text-slate-200">
-                  {{ $t('LOGIN.SAML.LABEL') }}
-                </span>
-              </router-link>
-            </div>
-            <SimpleDivider
-              v-if="showGoogleOAuth || showSamlLogin"
-              :label="$t('COMMON.OR')"
-              class="uppercase text-slate-500"
-            />
-          </div>
+      <!-- Login card with HUD corners -->
+      <div v-else class="relative" :class="{ 'animate-wiggle': loginApi.hasErrored }">
+        <!-- Corner brackets -->
+        <div class="absolute -top-1.5 -left-1.5 w-6 h-6 border-t-2 border-l-2 border-cyan-400/70" />
+        <div class="absolute -top-1.5 -right-1.5 w-6 h-6 border-t-2 border-r-2 border-cyan-400/70" />
+        <div class="absolute -bottom-1.5 -left-1.5 w-6 h-6 border-b-2 border-l-2 border-cyan-400/70" />
+        <div class="absolute -bottom-1.5 -right-1.5 w-6 h-6 border-b-2 border-r-2 border-cyan-400/70" />
 
-          <form class="space-y-5" @submit.prevent="submitFormLogin">
-            <FormInput
-              v-model="credentials.email"
-              name="email_address"
-              type="text"
-              data-testid="email_input"
-              :tabindex="1"
-              required
-              :label="$t('LOGIN.EMAIL.LABEL')"
-              :placeholder="$t('LOGIN.EMAIL.PLACEHOLDER')"
-              :has-error="v$.credentials.email.$error"
-              @input="v$.credentials.email.$touch"
-            />
-            <FormInput
-              v-model="credentials.password"
-              type="password"
-              name="password"
-              data-testid="password_input"
-              required
-              :tabindex="2"
-              :label="$t('LOGIN.PASSWORD.LABEL')"
-              :placeholder="$t('LOGIN.PASSWORD.PLACEHOLDER')"
-              :has-error="v$.credentials.password.$error"
-              @input="v$.credentials.password.$touch"
-            >
-              <p v-if="!globalConfig.disableUserProfileUpdate">
-                <router-link
-                  to="auth/reset/password"
-                  class="text-sm text-cyan-400 hover:text-cyan-300 transition-colors"
-                  tabindex="4"
-                >
-                  {{ $t('LOGIN.FORGOT_PASSWORD') }}
-                </router-link>
-              </p>
-            </FormInput>
-
-            <button
-              type="submit"
-              data-testid="submit_button"
-              :tabindex="3"
-              :disabled="loginApi.showLoading"
-              class="relative w-full flex items-center justify-center px-4 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
-            >
-              <Spinner v-if="loginApi.showLoading" color-scheme="primary" size="" class="mr-2" />
-              {{ $t('LOGIN.SUBMIT') }}
-            </button>
-          </form>
+        <!-- Status bar -->
+        <div class="flex items-center gap-2 px-4 py-2 bg-cyan-500/5 border border-b-0 border-cyan-500/15 rounded-t-lg">
+          <div class="w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_6px_rgba(74,222,128,0.9)]" />
+          <span class="text-xs tracking-[0.2em] uppercase text-cyan-400/50">Autenticação Segura</span>
+          <div class="flex-1" />
+          <span class="text-xs text-cyan-400/25 tracking-widest">[ CRIPTOGRAFADO ]</span>
         </div>
 
-        <div v-else class="flex items-center justify-center py-6">
-          <Spinner color-scheme="primary" size="" />
+        <!-- Form body -->
+        <div class="border border-t-0 border-cyan-500/15 bg-[#020817]/90 backdrop-blur-xl p-8 rounded-b-lg shadow-2xl shadow-cyan-500/5">
+          <div v-if="!email">
+            <div class="flex flex-col gap-4 mb-5">
+              <GoogleOAuthButton v-if="showGoogleOAuth" />
+              <div v-if="showSamlLogin" class="text-center">
+                <router-link
+                  to="/app/login/sso"
+                  class="inline-flex justify-center w-full px-4 py-3 items-center rounded-lg bg-cyan-500/5 border border-cyan-500/20 hover:border-cyan-500/40 hover:bg-cyan-500/10 transition-all duration-200 focus:outline-none"
+                >
+                  <Icon icon="i-lucide-lock-keyhole" class="size-5 text-cyan-400" />
+                  <span class="ml-2 text-sm font-mono tracking-widest text-cyan-300">
+                    {{ $t('LOGIN.SAML.LABEL') }}
+                  </span>
+                </router-link>
+              </div>
+              <SimpleDivider
+                v-if="showGoogleOAuth || showSamlLogin"
+                :label="$t('COMMON.OR')"
+                class="uppercase text-cyan-400/30"
+              />
+            </div>
+
+            <form class="space-y-5" @submit.prevent="submitFormLogin">
+              <FormInput
+                v-model="credentials.email"
+                name="email_address"
+                type="text"
+                data-testid="email_input"
+                :tabindex="1"
+                required
+                :label="$t('LOGIN.EMAIL.LABEL')"
+                :placeholder="$t('LOGIN.EMAIL.PLACEHOLDER')"
+                :has-error="v$.credentials.email.$error"
+                @input="v$.credentials.email.$touch"
+              />
+              <FormInput
+                v-model="credentials.password"
+                type="password"
+                name="password"
+                data-testid="password_input"
+                required
+                :tabindex="2"
+                :label="$t('LOGIN.PASSWORD.LABEL')"
+                :placeholder="$t('LOGIN.PASSWORD.PLACEHOLDER')"
+                :has-error="v$.credentials.password.$error"
+                @input="v$.credentials.password.$touch"
+              >
+                <p v-if="!globalConfig.disableUserProfileUpdate">
+                  <router-link
+                    to="auth/reset/password"
+                    class="text-xs font-mono tracking-wider text-cyan-400/60 hover:text-cyan-300 transition-colors"
+                    tabindex="4"
+                  >
+                    {{ $t('LOGIN.FORGOT_PASSWORD') }}
+                  </router-link>
+                </p>
+              </FormInput>
+
+              <button
+                type="submit"
+                data-testid="submit_button"
+                :tabindex="3"
+                :disabled="loginApi.showLoading"
+                class="relative w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-mono font-bold tracking-[0.2em] uppercase text-sm text-white bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 shadow-lg shadow-blue-500/30 hover:shadow-cyan-500/40 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-cyan-500/40"
+              >
+                <Spinner v-if="loginApi.showLoading" color-scheme="primary" size="" />
+                <span>{{ $t('LOGIN.SUBMIT') }}</span>
+                <Icon v-if="!loginApi.showLoading" icon="i-lucide-arrow-right" class="size-4" />
+              </button>
+            </form>
+          </div>
+
+          <div v-else class="flex items-center justify-center py-6">
+            <Spinner color-scheme="primary" size="" />
+          </div>
         </div>
       </div>
 
-      <!-- Footer -->
-      <p class="mt-8 text-xs text-center text-slate-600">
-        © {{ new Date().getFullYear() }} {{ globalConfig.installationName }}. Todos os direitos reservados.
+      <!-- Bottom status line -->
+      <div class="mt-8 flex items-center gap-3">
+        <div class="h-px flex-1 bg-gradient-to-r from-transparent to-cyan-500/20" />
+        <span class="text-xs font-mono tracking-[0.3em] text-cyan-400/25 uppercase">Sistema Seguro</span>
+        <div class="h-px flex-1 bg-gradient-to-l from-transparent to-cyan-500/20" />
+      </div>
+
+      <p class="mt-3 text-xs text-center font-mono tracking-widest text-cyan-400/15">
+        © {{ new Date().getFullYear() }} {{ globalConfig.installationName }}
       </p>
+    </div>
+
+    <!-- HUD Bottom bar -->
+    <div class="absolute bottom-0 left-0 right-0 flex items-center justify-between px-6 py-2 border-t border-cyan-500/10 z-20">
+      <span class="text-xs font-mono text-cyan-400/20 tracking-[0.2em] uppercase">Fluxo Digital Tech</span>
+      <span class="text-xs font-mono text-cyan-400/20 tracking-[0.2em] uppercase">Acesso Autorizado</span>
     </div>
   </main>
 </template>
