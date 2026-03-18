@@ -219,14 +219,14 @@ export default {
 </script>
 
 <template>
-  <main class="relative flex items-center justify-center w-full min-h-screen overflow-hidden bg-slate-950">
+  <main class="relative flex items-center justify-center w-full min-h-screen overflow-hidden bg-[#020817]">
     <!-- Background glow orbs -->
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-    <div class="absolute bottom-0 left-1/4 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-    <div class="absolute top-1/3 right-1/4 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl pointer-events-none" />
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
+    <div class="absolute bottom-0 left-1/4 w-80 h-80 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none" />
+    <div class="absolute top-1/3 right-1/4 w-64 h-64 bg-blue-400/15 rounded-full blur-3xl pointer-events-none" />
 
     <!-- Grid overlay -->
-    <div class="absolute inset-0 bg-[linear-gradient(rgba(14,165,233,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(14,165,233,0.04)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none" />
+    <div class="absolute inset-0 bg-[linear-gradient(rgba(14,165,233,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(14,165,233,0.06)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none" />
 
     <!-- Centered card -->
     <div class="relative z-10 w-full max-w-md px-6 py-12">
