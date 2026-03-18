@@ -6,6 +6,18 @@ export default {
   data() {
     return { theme: 'light' };
   },
+  computed: {
+    isAuthRoute() {
+      return [
+        'login',
+        'sso_login',
+        'auth_signup',
+        'auth_confirmation',
+        'auth_password_edit',
+        'auth_reset_password',
+      ].includes(this.$route.name);
+    },
+  },
   mounted() {
     this.setColorTheme();
     this.listenToThemeChanges();
@@ -42,7 +54,10 @@ export default {
 </script>
 
 <template>
-  <div class="h-full min-h-screen w-full antialiased" :class="theme">
+  <div
+    class="h-full min-h-screen w-full antialiased"
+    :class="[theme, isAuthRoute ? 'bg-slate-950' : '']"
+  >
     <router-view />
     <SnackbarContainer />
   </div>

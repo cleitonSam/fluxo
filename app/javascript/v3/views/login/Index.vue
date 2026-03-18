@@ -220,33 +220,25 @@ export default {
 
 <template>
   <main
-    class="flex flex-col w-full min-h-screen py-20 bg-n-brand/5 dark:bg-n-background sm:px-6 lg:px-8"
+    class="relative isolate flex min-h-screen w-full items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 px-4 py-10 sm:px-6 lg:px-8"
   >
-    <section class="max-w-5xl mx-auto">
-      <img
-        :src="globalConfig.logo"
-        :alt="globalConfig.installationName"
-        class="block w-auto h-8 mx-auto dark:hidden"
-      />
-      <img
-        v-if="globalConfig.logoDark"
-        :src="globalConfig.logoDark"
-        :alt="globalConfig.installationName"
-        class="hidden w-auto h-8 mx-auto dark:block"
-      />
-      <h2 class="mt-6 text-3xl font-medium text-center text-n-slate-12">
-        {{ replaceInstallationName($t('LOGIN.TITLE')) }}
-      </h2>
-      <p v-if="showSignupLink" class="mt-3 text-sm text-center text-n-slate-11">
-        {{ $t('COMMON.OR') }}
-        <router-link to="auth/signup" class="lowercase text-link text-n-brand">
-          {{ $t('LOGIN.CREATE_NEW_ACCOUNT') }}
-        </router-link>
-      </p>
-    </section>
+    <div
+      class="pointer-events-none absolute inset-x-0 top-0 -z-10 flex justify-center"
+    >
+      <div class="h-96 w-96 rounded-full bg-cyan-400/25 blur-3xl" />
+    </div>
+    <div
+      class="pointer-events-none absolute left-0 top-1/4 -z-10 h-96 w-96 rounded-full bg-blue-500/30 blur-3xl"
+    />
+    <div
+      class="pointer-events-none absolute bottom-0 right-0 -z-10 h-[28rem] w-[28rem] rounded-full bg-sky-400/20 blur-3xl"
+    />
 
     <!-- MFA Verification Section -->
-    <section v-if="mfaRequired" class="mt-11">
+    <section
+      v-if="mfaRequired"
+      class="w-full max-w-lg rounded-[28px] border border-cyan-400/20 bg-slate-900/90 p-8 shadow-2xl shadow-cyan-500/20 backdrop-blur-xl sm:p-10"
+    >
       <MfaVerification
         :mfa-token="mfaToken"
         @verified="handleMfaVerified"
@@ -257,25 +249,94 @@ export default {
     <!-- Regular Login Section -->
     <section
       v-else
-      class="bg-white shadow sm:mx-auto mt-11 sm:w-full sm:max-w-lg dark:bg-n-solid-2 p-11 sm:shadow-lg sm:rounded-lg"
+      class="grid w-full max-w-6xl gap-6 rounded-[32px] border border-white/10 bg-slate-950/55 p-4 shadow-2xl shadow-blue-950/50 backdrop-blur-xl lg:grid-cols-[1.05fr,0.95fr] lg:p-6"
       :class="{
-        'mb-8 mt-15': !showGoogleOAuth,
         'animate-wiggle': loginApi.hasErrored,
       }"
     >
-      <div v-if="!email">
+      <div
+        class="hidden rounded-[28px] border border-cyan-400/10 bg-gradient-to-br from-cyan-400/10 via-blue-500/10 to-slate-950 p-10 lg:flex lg:flex-col lg:justify-between"
+      >
+        <div>
+          <div
+            class="mb-8 flex h-20 w-20 items-center justify-center rounded-3xl border border-cyan-400/20 bg-slate-950/80 shadow-lg shadow-cyan-500/20"
+          >
+            <img
+              :src="globalConfig.logo"
+              :alt="globalConfig.installationName"
+              class="block h-10 w-auto dark:hidden"
+            />
+            <img
+              v-if="globalConfig.logoDark"
+              :src="globalConfig.logoDark"
+              :alt="globalConfig.installationName"
+              class="hidden h-10 w-auto dark:block"
+            />
+          </div>
+          <p class="text-sm uppercase tracking-[0.3em] text-cyan-300">
+            {{ globalConfig.installationName }}
+          </p>
+          <h2 class="mt-4 text-4xl font-semibold leading-tight text-white">
+            {{ replaceInstallationName($t('LOGIN.TITLE')) }}
+          </h2>
+        </div>
+        <p v-if="showSignupLink" class="text-sm text-slate-300">
+          {{ $t('COMMON.OR') }}
+          <router-link
+            to="auth/signup"
+            class="text-link lowercase text-cyan-300 hover:text-cyan-200"
+          >
+            {{ $t('LOGIN.CREATE_NEW_ACCOUNT') }}
+          </router-link>
+        </p>
+      </div>
+
+      <div
+        v-if="!email"
+        class="rounded-[28px] border border-cyan-400/20 bg-slate-900/90 p-8 shadow-2xl shadow-cyan-500/20 sm:p-11"
+      >
+        <div class="mb-8 flex flex-col items-center text-center lg:hidden">
+          <div
+            class="mb-5 flex h-20 w-20 items-center justify-center rounded-3xl border border-cyan-400/20 bg-slate-950/80 shadow-lg shadow-cyan-500/20"
+          >
+            <img
+              :src="globalConfig.logo"
+              :alt="globalConfig.installationName"
+              class="block h-10 w-auto dark:hidden"
+            />
+            <img
+              v-if="globalConfig.logoDark"
+              :src="globalConfig.logoDark"
+              :alt="globalConfig.installationName"
+              class="hidden h-10 w-auto dark:block"
+            />
+          </div>
+          <h2 class="text-3xl font-semibold text-white">
+            {{ replaceInstallationName($t('LOGIN.TITLE')) }}
+          </h2>
+          <p
+            v-if="showSignupLink"
+            class="mt-3 text-center text-sm text-slate-300"
+          >
+            {{ $t('COMMON.OR') }}
+            <router-link
+              to="auth/signup"
+              class="text-link lowercase text-cyan-300 hover:text-cyan-200"
+            >
+              {{ $t('LOGIN.CREATE_NEW_ACCOUNT') }}
+            </router-link>
+          </p>
+        </div>
+
         <div class="flex flex-col gap-4">
           <GoogleOAuthButton v-if="showGoogleOAuth" />
           <div v-if="showSamlLogin" class="text-center">
             <router-link
               to="/app/login/sso"
-              class="inline-flex justify-center w-full px-4 py-3 items-center bg-n-background dark:bg-n-solid-3 rounded-md shadow-sm ring-1 ring-inset ring-n-container dark:ring-n-container focus:outline-offset-0 hover:bg-n-alpha-2 dark:hover:bg-n-alpha-2"
+              class="inline-flex w-full items-center justify-center rounded-xl border border-cyan-400/20 bg-slate-950/70 px-4 py-3 shadow-lg shadow-cyan-500/5 ring-1 ring-inset ring-cyan-300/10 transition hover:border-cyan-300/40 hover:bg-slate-900 focus:outline-offset-0"
             >
-              <Icon
-                icon="i-lucide-lock-keyhole"
-                class="size-5 text-n-slate-11"
-              />
-              <span class="ml-2 text-base font-medium text-n-slate-12">
+              <Icon icon="i-lucide-lock-keyhole" class="size-5 text-cyan-300" />
+              <span class="ml-2 text-base font-medium text-slate-100">
                 {{ $t('LOGIN.SAML.LABEL') }}
               </span>
             </router-link>
@@ -314,7 +375,7 @@ export default {
             <p v-if="!globalConfig.disableUserProfileUpdate">
               <router-link
                 to="auth/reset/password"
-                class="text-sm text-link"
+                class="text-link text-sm text-cyan-300 hover:text-cyan-200"
                 tabindex="4"
               >
                 {{ $t('LOGIN.FORGOT_PASSWORD') }}
@@ -325,7 +386,7 @@ export default {
             lg
             type="submit"
             data-testid="submit_button"
-            class="w-full"
+            class="w-full shadow-lg shadow-cyan-500/20 ring-1 ring-cyan-300/20"
             :tabindex="3"
             :label="$t('LOGIN.SUBMIT')"
             :disabled="loginApi.showLoading"
@@ -333,7 +394,10 @@ export default {
           />
         </form>
       </div>
-      <div v-else class="flex items-center justify-center">
+      <div
+        v-else
+        class="rounded-[28px] border border-cyan-400/20 bg-slate-900/90 p-8 shadow-2xl shadow-cyan-500/20 sm:p-11"
+      >
         <Spinner color-scheme="primary" size="" />
       </div>
     </section>
