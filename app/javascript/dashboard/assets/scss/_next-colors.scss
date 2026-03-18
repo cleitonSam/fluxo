@@ -2,19 +2,19 @@
 @layer base {
   // NEXT COLORS START
   :root {
-    // slate
-    --slate-1: 252 252 253;
-    --slate-2: 249 249 251;
-    --slate-3: 240 240 243;
-    --slate-4: 232 232 236;
-    --slate-5: 224 225 230;
-    --slate-6: 217 217 224;
-    --slate-7: 205 206 214;
-    --slate-8: 185 187 198;
-    --slate-9: 139 141 152;
-    --slate-10: 128 131 141;
-    --slate-11: 96 100 108;
-    --slate-12: 28 32 36;
+    // slate — dark blue neon theme
+    --slate-1: 2 8 23;
+    --slate-2: 5 12 32;
+    --slate-3: 10 20 50;
+    --slate-4: 14 28 65;
+    --slate-5: 18 36 80;
+    --slate-6: 24 46 95;
+    --slate-7: 35 60 115;
+    --slate-8: 55 85 145;
+    --slate-9: 90 120 185;
+    --slate-10: 120 155 210;
+    --slate-11: 176 200 240;
+    --slate-12: 230 240 255;
 
     --iris-1: 253 253 255;
     --iris-2: 248 248 255;
@@ -107,190 +107,119 @@
     --violet-11: 101 85 183;
     --violet-12: 47 38 95;
 
-    --background-color: 247 247 247;
-    --surface-1: 254 254 254;
-    --surface-2: 255 255 255;
-    --surface-active: 255 255 255;
-    --background-input-box: 0, 0, 0, 0.03;
-    --text-blue: 1 22 44;
-    --text-purple: 2 4 49;
-    --text-amber: 37 24 1;
-    --border-container: 236 236 236;
-    --border-strong: 226 227 231;
-    --border-weak: 234 234 234;
-    --border-blue-strong: 18 61 117;
-    --solid-1: 255 255 255;
-    --solid-2: 255 255 255;
-    --solid-3: 255 255 255;
-    --solid-active: 255 255 255;
-    --solid-amber: 255 228 181;
-    --solid-blue: 218 236 255;
-    --solid-blue-2: 251 253 255;
-    --solid-iris: 230 231 255;
-    --solid-purple: 230 231 255;
-    --solid-red: 254 200 201;
-    --solid-amber-button: 255 221 141;
-    --card-color: 255 255 255;
-    --overlay: 0, 0, 0, 0.12;
-    --overlay-avatar: 255, 255, 255, 0.67;
-    --button-color: 255 255 255;
-    --button-hover-color: 255, 255, 255, 0.2;
-    --label-background: 247 247 247;
-    --label-border: 0, 0, 0, 0.04;
-
-    --alpha-1: 215, 215, 215, 0.22;
-    --alpha-2: 196, 197, 198, 0.22;
-    --alpha-3: 255, 255, 255, 0.96;
-    --black-alpha-1: 0, 0, 0, 0.12;
-    --black-alpha-2: 0, 0, 0, 0.04;
-    --border-blue: 39, 129, 246, 0.5;
-    --white-alpha: 255, 255, 255, 0.8;
-  }
-
-  .dark {
-    // slate
-    --slate-1: 17 17 19;
-    --slate-2: 24 25 27;
-    --slate-3: 33 34 37;
-    --slate-4: 39 42 45;
-    --slate-5: 46 49 53;
-    --slate-6: 54 58 63;
-    --slate-7: 67 72 78;
-    --slate-8: 90 97 105;
-    --slate-9: 105 110 119;
-    --slate-10: 119 123 132;
-    --slate-11: 176 180 186;
-    --slate-12: 237 238 240;
-
-    --iris-1: 19 19 30;
-    --iris-2: 23 22 37;
-    --iris-3: 32 34 72;
-    --iris-4: 38 42 101;
-    --iris-5: 48 51 116;
-    --iris-6: 61 62 130;
-    --iris-7: 74 74 149;
-    --iris-8: 89 88 177;
-    --iris-9: 91 91 214;
-    --iris-10: 84 114 228;
-    --iris-11: 158 177 255;
-    --iris-12: 224 223 254;
-
-    --blue-1: 10 17 28;
-    --blue-2: 15 24 38;
-    --blue-3: 15 39 72;
-    --blue-4: 10 49 99;
-    --blue-5: 18 61 117;
-    --blue-6: 29 84 134;
-    --blue-7: 40 89 156;
-    --blue-8: 48 106 186;
-    --blue-9: 39 129 246;
-    --blue-10: 21 116 231;
-    --blue-11: 126 182 255;
-    --blue-12: 205 227 255;
-
-    --ruby-1: 25 17 19;
-    --ruby-2: 30 21 23;
-    --ruby-3: 58 20 30;
-    --ruby-4: 78 19 37;
-    --ruby-5: 94 26 46;
-    --ruby-6: 111 37 57;
-    --ruby-7: 136 52 71;
-    --ruby-8: 179 68 90;
-    --ruby-9: 229 70 102;
-    --ruby-10: 236 90 114;
-    --ruby-11: 255 148 157;
-    --ruby-12: 254 210 225;
-
-    --amber-1: 22 18 12;
-    --amber-2: 29 24 15;
-    --amber-3: 48 32 8;
-    --amber-4: 63 39 0;
-    --amber-5: 77 48 0;
-    --amber-6: 92 61 5;
-    --amber-7: 113 79 25;
-    --amber-8: 143 100 36;
-    --amber-9: 255 197 61;
-    --amber-10: 255 214 10;
-    --amber-11: 255 202 22;
-    --amber-12: 255 231 179;
-
-    --teal-1: 13 21 20;
-    --teal-2: 17 28 27;
-    --teal-3: 13 45 42;
-    --teal-4: 2 59 55;
-    --teal-5: 8 72 67;
-    --teal-6: 20 87 80;
-    --teal-7: 28 105 97;
-    --teal-8: 32 126 115;
-    --teal-9: 18 165 148;
-    --teal-10: 14 179 158;
-    --teal-11: 11 216 182;
-    --teal-12: 173 240 221;
-
-    --gray-1: 17 17 17;
-    --gray-2: 25 25 25;
-    --gray-3: 34 34 34;
-    --gray-4: 42 42 42;
-    --gray-5: 49 49 49;
-    --gray-6: 58 58 58;
-    --gray-7: 72 72 72;
-    --gray-8: 96 96 96;
-    --gray-9: 110 110 110;
-    --gray-10: 123 123 123;
-    --gray-11: 180 180 180;
-    --gray-12: 238 238 238;
-
-    --violet-1: 20 17 31;
-    --violet-2: 27 21 37;
-    --violet-3: 41 31 67;
-    --violet-4: 50 37 85;
-    --violet-5: 60 46 105;
-    --violet-6: 71 56 135;
-    --violet-7: 86 70 151;
-    --violet-8: 110 86 171;
-    --violet-9: 110 86 207;
-    --violet-10: 125 109 217;
-    --violet-11: 169 153 236;
-    --violet-12: 226 221 254;
-
-    --background-color: 28 29 32;
-    --surface-1: 20 21 23;
-    --surface-2: 22 23 26;
-    --surface-active: 53 57 66;
-    --background-input-box: 255, 255, 255, 0.02;
-    --text-blue: 213 234 255;
-    --text-purple: 232 233 254;
+    --background-color: 2 8 23;
+    --surface-1: 5 12 30;
+    --surface-2: 8 16 38;
+    --surface-active: 14 28 65;
+    --background-input-box: 14, 165, 233, 0.05;
+    --text-blue: 205 227 255;
+    --text-purple: 220 221 255;
     --text-amber: 255 247 234;
-    --border-strong: 46 45 50;
-    --border-weak: 31 31 37;
-    --border-blue-strong: 201 226 255;
-    --solid-1: 23 23 26;
-    --solid-2: 29 30 36;
-    --solid-3: 44 45 54;
-    --solid-active: 53 57 66;
+    --border-container: 20, 50, 100, 0.4;
+    --border-strong: 30 55 110;
+    --border-weak: 14 30 65;
+    --border-blue-strong: 39 129 246;
+    --solid-1: 5 12 30;
+    --solid-2: 10 20 45;
+    --solid-3: 15 30 65;
+    --solid-active: 20 40 90;
     --solid-amber: 56 50 41;
-    --solid-blue: 15 57 102;
-    --solid-blue-2: 26 29 35;
-    --solid-iris: 38 42 101;
-    --solid-purple: 51 51 107;
-    --solid-red: 90 33 34;
+    --solid-blue: 10 40 90;
+    --solid-blue-2: 5 15 40;
+    --solid-iris: 20 25 80;
+    --solid-purple: 25 25 80;
+    --solid-red: 80 20 30;
     --solid-amber-button: 255 221 141;
-    --card-color: 28 30 34;
-    --overlay: 0, 0, 0, 0.4;
+    --card-color: 8 16 38;
+    --overlay: 0, 0, 0, 0.5;
     --overlay-avatar: 0, 0, 0, 0.05;
-    --button-color: 42 43 51;
-    --button-hover-color: 0, 0, 0, 0.15;
-    --label-background: 36 38 45;
-    --label-border: 255, 255, 255, 0.03;
+    --button-color: 10 20 50;
+    --button-hover-color: 14, 165, 233, 0.1;
+    --label-background: 10 20 50;
+    --label-border: 14, 165, 233, 0.08;
 
-    --alpha-1: 35, 36, 42, 0.8;
-    --alpha-2: 147, 153, 176, 0.12;
-    --alpha-3: 33, 34, 38, 0.95;
+    --alpha-1: 14, 30, 70, 0.8;
+    --alpha-2: 14, 165, 233, 0.1;
+    --alpha-3: 5, 12, 30, 0.95;
     --black-alpha-1: 0, 0, 0, 0.3;
     --black-alpha-2: 0, 0, 0, 0.2;
     --border-blue: 39, 129, 246, 0.5;
-    --border-container: 255, 255, 255, 0;
+    --white-alpha: 255, 255, 255, 0.1;
+  }
+
+  // Tema Fluxo Digital Tech — único tema (dark blue neon)
+  .dark {
+    --slate-1: 2 8 23;
+    --slate-2: 5 12 32;
+    --slate-3: 10 20 50;
+    --slate-4: 14 28 65;
+    --slate-5: 18 36 80;
+    --slate-6: 24 46 95;
+    --slate-7: 35 60 115;
+    --slate-8: 55 85 145;
+    --slate-9: 90 120 185;
+    --slate-10: 120 155 210;
+    --slate-11: 176 200 240;
+    --slate-12: 230 240 255;
+
+    --background-color: 2 8 23;
+    --surface-1: 5 12 30;
+    --surface-2: 8 16 38;
+    --surface-active: 14 28 65;
+    --background-input-box: 14, 165, 233, 0.05;
+    --text-blue: 205 227 255;
+    --text-purple: 220 221 255;
+    --text-amber: 255 247 234;
+    --border-container: 20, 50, 100, 0.4;
+    --border-strong: 30 55 110;
+    --border-weak: 14 30 65;
+    --border-blue-strong: 39 129 246;
+    --solid-1: 5 12 30;
+    --solid-2: 10 20 45;
+    --solid-3: 15 30 65;
+    --solid-active: 20 40 90;
+    --solid-amber: 56 50 41;
+    --solid-blue: 10 40 90;
+    --solid-blue-2: 5 15 40;
+    --solid-iris: 20 25 80;
+    --solid-purple: 25 25 80;
+    --solid-red: 80 20 30;
+    --solid-amber-button: 255 221 141;
+    --card-color: 8 16 38;
+    --overlay: 0, 0, 0, 0.5;
+    --overlay-avatar: 0, 0, 0, 0.05;
+    --button-color: 10 20 50;
+    --button-hover-color: 14, 165, 233, 0.1;
+    --label-background: 10 20 50;
+    --label-border: 14, 165, 233, 0.08;
+
+    --alpha-1: 14, 30, 70, 0.8;
+    --alpha-2: 14, 165, 233, 0.1;
+    --alpha-3: 5, 12, 30, 0.95;
+    --black-alpha-1: 0, 0, 0, 0.3;
+    --black-alpha-2: 0, 0, 0, 0.2;
+    --border-blue: 39, 129, 246, 0.5;
     --white-alpha: 255, 255, 255, 0.1;
   }
 }
 // NEXT COLORS END
+
+// Neon scrollbar global
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(34, 211, 238, 0.2);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(34, 211, 238, 0.5);
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(34, 211, 238, 0.2) transparent;
+}
