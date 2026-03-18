@@ -8,13 +8,6 @@ else
   rm -f /app/tmp/pids/server.pid
   echo "==> Running database migrations..."
   bundle exec rails db:chatwoot_prepare
-  echo "==> Updating branding configs..."
-  bundle exec rails runner "
-    { 'INSTALLATION_NAME' => 'Fluxo Digital Tech', 'BRAND_NAME' => 'Fluxo Digital Tech', 'BRAND_URL' => 'https://fluxodigitaltech.com.br', 'WIDGET_BRAND_URL' => 'https://fluxodigitaltech.com.br' }.each do |name, value|
-      config = InstallationConfig.find_by(name: name)
-      config.update(serialized_value: { value: value }.to_yaml) if config
-    end
-  "
   echo "==> Starting Rails server..."
   exec bundle exec rails server -b 0.0.0.0 -p 3000
 fi
