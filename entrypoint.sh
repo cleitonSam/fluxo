@@ -12,7 +12,10 @@ else
   bundle exec rails runner "
     { 'INSTALLATION_NAME' => 'Fluxo Digital Tech', 'BRAND_NAME' => 'Fluxo Digital Tech', 'BRAND_URL' => 'https://fluxodigitaltech.com.br', 'WIDGET_BRAND_URL' => 'https://fluxodigitaltech.com.br' }.each do |name, value|
       config = InstallationConfig.find_by(name: name)
-      config.update(serialized_value: { value: value }.to_yaml) if config
+      next unless config
+
+      config.value = value
+      config.save!
     end
   "
   echo "==> Starting Rails server..."
