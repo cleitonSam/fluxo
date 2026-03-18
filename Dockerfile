@@ -150,4 +150,10 @@ COPY --from=pre-builder /app/.git_sha /app/.git_sha
 
 WORKDIR /app
 
+COPY entrypoint.sh /app/entrypoint.sh
+COPY entrypoint-sidekiq.sh /app/entrypoint-sidekiq.sh
+RUN chmod +x /app/entrypoint.sh /app/entrypoint-sidekiq.sh
+
 EXPOSE 3000
+
+ENTRYPOINT ["/app/entrypoint.sh"]
