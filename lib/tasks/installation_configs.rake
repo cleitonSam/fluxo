@@ -14,13 +14,14 @@ namespace :installation_configs do
     end
 
     config_map.each do |name, raw_value|
-      value = cast_value(name, raw_value)
       config = InstallationConfig.find_or_initialize_by(name: name)
-      config.value = value
+      config.value = cast_value(name, raw_value)
       config.save!
-      puts "Updated #{name} => #{value}"
+      puts "Updated #{name} => #{config.value}"
     end
   end
+
+  private
 
   def cast_value(name, value)
     return value.to_i if name == 'INSTALLATION_PRICING_PLAN_QUANTITY'
