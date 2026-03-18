@@ -241,7 +241,15 @@ watch(
           :title="label"
           @click="hasChildren ? handleCollapsedClick() : undefined"
         >
-          <Icon v-if="icon" :icon="icon" class="size-4" />
+          <Icon
+            v-if="icon"
+            :icon="icon"
+            class="size-4"
+            :class="{
+              'text-cyan-300 drop-shadow-[0_0_8px_rgba(34,211,238,0.9)]': isActive || hasActiveChild,
+              'text-cyan-400 drop-shadow-[0_0_4px_rgba(34,211,238,0.5)]': !isActive && !hasActiveChild,
+            }"
+          />
         </component>
         <SidebarCollapsedPopover
           v-if="hasChildren && isPopoverOpen"

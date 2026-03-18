@@ -29,7 +29,7 @@ function openNotificationPanel() {
     class="size-8 rounded-lg hover:bg-n-alpha-1 flex-shrink-0 grid place-content-center relative"
     @click="openNotificationPanel"
   >
-    <span class="i-lucide-bell size-4" />
+    <span class="i-lucide-bell size-4 text-cyan-400 drop-shadow-[0_0_6px_rgba(34,211,238,0.7)]" />
     <span
       v-if="unreadCount"
       class="min-h-2 min-w-2 p-0.5 px-1 bg-n-ruby-9 rounded-lg absolute -top-1 -right-1.5 grid place-items-center text-[9px] leading-none text-n-ruby-3"
