@@ -2,19 +2,19 @@
 @layer base {
   // NEXT COLORS START
   :root {
-    // slate
-    --slate-1: 252 252 253;
-    --slate-2: 249 249 251;
-    --slate-3: 240 240 243;
-    --slate-4: 232 232 236;
-    --slate-5: 224 225 230;
-    --slate-6: 217 217 224;
-    --slate-7: 205 206 214;
-    --slate-8: 185 187 198;
-    --slate-9: 139 141 152;
-    --slate-10: 128 131 141;
-    --slate-11: 96 100 108;
-    --slate-12: 28 32 36;
+    // slate — dark blue neon theme
+    --slate-1: 2 8 23;
+    --slate-2: 5 12 32;
+    --slate-3: 10 20 50;
+    --slate-4: 14 28 65;
+    --slate-5: 18 36 80;
+    --slate-6: 24 46 95;
+    --slate-7: 35 60 115;
+    --slate-8: 55 85 145;
+    --slate-9: 90 120 185;
+    --slate-10: 120 155 210;
+    --slate-11: 176 200 240;
+    --slate-12: 230 240 255;
 
     --iris-1: 253 253 255;
     --iris-2: 248 248 255;
@@ -107,44 +107,44 @@
     --violet-11: 101 85 183;
     --violet-12: 47 38 95;
 
-    --background-color: 247 247 247;
-    --surface-1: 254 254 254;
-    --surface-2: 255 255 255;
-    --surface-active: 255 255 255;
-    --background-input-box: 0, 0, 0, 0.03;
-    --text-blue: 1 22 44;
-    --text-purple: 2 4 49;
-    --text-amber: 37 24 1;
-    --border-container: 236 236 236;
-    --border-strong: 226 227 231;
-    --border-weak: 234 234 234;
-    --border-blue-strong: 18 61 117;
-    --solid-1: 255 255 255;
-    --solid-2: 255 255 255;
-    --solid-3: 255 255 255;
-    --solid-active: 255 255 255;
-    --solid-amber: 255 228 181;
-    --solid-blue: 218 236 255;
-    --solid-blue-2: 251 253 255;
-    --solid-iris: 230 231 255;
-    --solid-purple: 230 231 255;
-    --solid-red: 254 200 201;
+    --background-color: 2 8 23;
+    --surface-1: 5 12 30;
+    --surface-2: 8 16 38;
+    --surface-active: 14 28 65;
+    --background-input-box: 14, 165, 233, 0.05;
+    --text-blue: 205 227 255;
+    --text-purple: 220 221 255;
+    --text-amber: 255 247 234;
+    --border-container: 20, 50, 100, 0.4;
+    --border-strong: 30 55 110;
+    --border-weak: 14 30 65;
+    --border-blue-strong: 39 129 246;
+    --solid-1: 5 12 30;
+    --solid-2: 10 20 45;
+    --solid-3: 15 30 65;
+    --solid-active: 20 40 90;
+    --solid-amber: 56 50 41;
+    --solid-blue: 10 40 90;
+    --solid-blue-2: 5 15 40;
+    --solid-iris: 20 25 80;
+    --solid-purple: 25 25 80;
+    --solid-red: 80 20 30;
     --solid-amber-button: 255 221 141;
-    --card-color: 255 255 255;
-    --overlay: 0, 0, 0, 0.12;
-    --overlay-avatar: 255, 255, 255, 0.67;
-    --button-color: 255 255 255;
-    --button-hover-color: 255, 255, 255, 0.2;
-    --label-background: 247 247 247;
-    --label-border: 0, 0, 0, 0.04;
+    --card-color: 8 16 38;
+    --overlay: 0, 0, 0, 0.5;
+    --overlay-avatar: 0, 0, 0, 0.05;
+    --button-color: 10 20 50;
+    --button-hover-color: 14, 165, 233, 0.1;
+    --label-background: 10 20 50;
+    --label-border: 14, 165, 233, 0.08;
 
-    --alpha-1: 215, 215, 215, 0.22;
-    --alpha-2: 196, 197, 198, 0.22;
-    --alpha-3: 255, 255, 255, 0.96;
-    --black-alpha-1: 0, 0, 0, 0.12;
-    --black-alpha-2: 0, 0, 0, 0.04;
+    --alpha-1: 14, 30, 70, 0.8;
+    --alpha-2: 14, 165, 233, 0.1;
+    --alpha-3: 5, 12, 30, 0.95;
+    --black-alpha-1: 0, 0, 0, 0.3;
+    --black-alpha-2: 0, 0, 0, 0.2;
     --border-blue: 39, 129, 246, 0.5;
-    --white-alpha: 255, 255, 255, 0.8;
+    --white-alpha: 255, 255, 255, 0.1;
   }
 
   .dark {
