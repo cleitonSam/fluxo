@@ -49,8 +49,8 @@ const shouldRenderComponent = computed(() => {
             :icon="icon"
             class="size-4 inline-block"
             :class="{
-              'text-cyan-300 drop-shadow-[0_0_8px_rgba(34,211,238,0.9)]': active,
-              'text-cyan-400 drop-shadow-[0_0_4px_rgba(34,211,238,0.5)]': !active,
+              'text-[#67e8f9] drop-shadow-[0_0_8px_rgba(34,211,238,0.9)]': active,
+              'text-[#22d3ee] drop-shadow-[0_0_4px_rgba(34,211,238,0.5)]': !active,
             }"
           />
         </span>

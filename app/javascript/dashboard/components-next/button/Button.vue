@@ -101,14 +101,14 @@ const STYLE_CONFIG = {
   colors: {
     blue: {
       solid:
-        'bg-gradient-to-r from-sky-600 to-cyan-500 text-white shadow-[0_2px_8px_rgba(34,211,238,0.25)] hover:enabled:shadow-[0_0_20px_rgba(34,211,238,0.6)] focus-visible:shadow-[0_0_20px_rgba(34,211,238,0.6)] hover:enabled:brightness-110 outline-transparent',
+        'bg-gradient-to-r from-[#0284c7] to-[#06b6d4] text-white shadow-[0_2px_8px_rgba(34,211,238,0.25)] hover:enabled:shadow-[0_0_20px_rgba(34,211,238,0.6)] focus-visible:shadow-[0_0_20px_rgba(34,211,238,0.6)] hover:enabled:brightness-110 outline-transparent',
       faded:
-        'bg-cyan-500/10 text-cyan-400 hover:enabled:bg-cyan-500/20 focus-visible:bg-cyan-500/20 outline-transparent',
+        'bg-[rgba(6,182,212,0.1)] text-[#22d3ee] hover:enabled:bg-[rgba(6,182,212,0.2)] focus-visible:bg-[rgba(6,182,212,0.2)] outline-transparent',
       outline:
-        'text-cyan-400 outline-cyan-500/50 hover:enabled:bg-cyan-500/10 focus-visible:bg-cyan-500/10 hover:enabled:shadow-[0_0_10px_rgba(34,211,238,0.25)]',
+        'text-[#22d3ee] outline-[rgba(6,182,212,0.5)] hover:enabled:bg-[rgba(6,182,212,0.1)] focus-visible:bg-[rgba(6,182,212,0.1)] hover:enabled:shadow-[0_0_10px_rgba(34,211,238,0.25)]',
       ghost:
-        'text-cyan-400 hover:enabled:bg-cyan-500/10 focus-visible:bg-cyan-500/10 outline-transparent',
-      link: 'text-cyan-400 hover:enabled:underline focus-visible:underline outline-transparent',
+        'text-[#22d3ee] hover:enabled:bg-[rgba(6,182,212,0.1)] focus-visible:bg-[rgba(6,182,212,0.1)] outline-transparent',
+      link: 'text-[#22d3ee] hover:enabled:underline focus-visible:underline outline-transparent',
     },
     ruby: {
       solid:
@@ -134,12 +134,12 @@ const STYLE_CONFIG = {
     },
     slate: {
       solid:
-        'bg-n-button-color dark:hover:enabled:bg-n-solid-2 dark:focus-visible:bg-n-solid-2 hover:enabled:bg-n-alpha-2 focus-visible:bg-n-alpha-2 text-n-slate-12 outline-n-container hover:enabled:outline-cyan-500/30 hover:enabled:shadow-[0_0_8px_rgba(34,211,238,0.1)]',
+        'bg-n-button-color dark:hover:enabled:bg-n-solid-2 dark:focus-visible:bg-n-solid-2 hover:enabled:bg-n-alpha-2 focus-visible:bg-n-alpha-2 text-n-slate-12 outline-n-container hover:enabled:outline-[rgba(6,182,212,0.3)] hover:enabled:shadow-[0_0_8px_rgba(34,211,238,0.1)]',
       faded:
         'bg-n-slate-9/10 text-n-slate-12 hover:enabled:bg-n-slate-9/20 focus-visible:bg-n-slate-9/20 outline-transparent',
       outline:
-        'text-n-slate-11 outline-n-strong hover:enabled:bg-n-slate-9/10 focus-visible:bg-n-slate-9/10 hover:enabled:outline-cyan-500/30',
-      link: 'text-n-slate-11 hover:enabled:text-cyan-400 focus-visible:text-cyan-400 hover:enabled:underline focus-visible:underline outline-transparent',
+        'text-n-slate-11 outline-n-strong hover:enabled:bg-n-slate-9/10 focus-visible:bg-n-slate-9/10 hover:enabled:outline-[rgba(6,182,212,0.3)]',
+      link: 'text-n-slate-11 hover:enabled:text-[#22d3ee] focus-visible:text-[#22d3ee] hover:enabled:underline focus-visible:underline outline-transparent',
       ghost:
         'text-n-slate-12 hover:enabled:bg-n-alpha-2 focus-visible:bg-n-alpha-2 outline-transparent',
     },

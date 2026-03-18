@@ -778,7 +778,7 @@ const menuItems = computed(() => {
           :to="{ name: 'search' }"
           class="flex gap-2 items-center px-2 py-1 w-full h-7 rounded-lg outline outline-1 outline-n-weak bg-n-button-color transition-all duration-100 ease-out"
         >
-          <span class="flex-shrink-0 i-lucide-search size-4 text-cyan-400 drop-shadow-[0_0_4px_rgba(34,211,238,0.6)]" />
+          <span class="flex-shrink-0 i-lucide-search size-4 text-[#22d3ee] drop-shadow-[0_0_4px_rgba(34,211,238,0.6)]" />
           <span class="flex-grow text-start text-n-slate-10">
             {{ t('COMBOBOX.SEARCH_PLACEHOLDER') }}
           </span>
@@ -794,7 +794,7 @@ const menuItems = computed(() => {
           class="flex items-center justify-center size-8 rounded-lg outline outline-1 outline-n-weak bg-n-button-color transition-all duration-100 ease-out hover:bg-n-alpha-2 dark:hover:bg-n-slate-9/30"
           :title="t('COMBOBOX.SEARCH_PLACEHOLDER')"
         >
-          <span class="i-lucide-search size-4 text-cyan-400 drop-shadow-[0_0_4px_rgba(34,211,238,0.6)]" />
+          <span class="i-lucide-search size-4 text-[#22d3ee] drop-shadow-[0_0_4px_rgba(34,211,238,0.6)]" />
         </RouterLink>
         <ComposeConversation align-position="right" @close="onComposeClose">
           <template #trigger="{ toggle, isOpen }">

@@ -44,8 +44,8 @@ const count = computed(() =>
         :icon="icon"
         class="size-4"
         :class="{
-          'text-cyan-300 drop-shadow-[0_0_8px_rgba(34,211,238,0.9)]': isActive || hasActiveChild,
-          'text-cyan-400 drop-shadow-[0_0_4px_rgba(34,211,238,0.5)]': !isActive && !hasActiveChild,
+          'text-[#67e8f9] drop-shadow-[0_0_8px_rgba(34,211,238,0.9)]': isActive || hasActiveChild,
+          'text-[#22d3ee] drop-shadow-[0_0_4px_rgba(34,211,238,0.5)]': !isActive && !hasActiveChild,
         }"
       />
       <span
