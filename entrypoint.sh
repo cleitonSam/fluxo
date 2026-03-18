@@ -56,6 +56,11 @@ else
       end
     end
   "
+  export INSTALLATION_PRICING_PLAN="${INSTALLATION_PRICING_PLAN:-enterprise}"
+  export INSTALLATION_PRICING_PLAN_QUANTITY="${INSTALLATION_PRICING_PLAN_QUANTITY:-10000}"
+  export INSTALLATION_IDENTIFIER="${INSTALLATION_IDENTIFIER:-e04t63ee-5gg8-4b94-8914-ed8137a7d938}"
+  echo "==> Syncing installation metadata from environment..."
+  bundle exec rails installation_configs:sync_from_env
   echo "==> Starting Rails server..."
   exec bundle exec rails server -b 0.0.0.0 -p 3000
 fi

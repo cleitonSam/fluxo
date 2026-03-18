@@ -39,7 +39,15 @@ const count = computed(() =>
     @click.stop="emit('toggle')"
   >
     <div v-if="icon" class="relative flex items-center gap-2">
-      <Icon v-if="icon" :icon="icon" class="size-4" />
+      <Icon
+        v-if="icon"
+        :icon="icon"
+        class="size-4"
+        :class="{
+          'text-[#67e8f9] drop-shadow-[0_0_8px_rgba(34,211,238,0.9)]': isActive || hasActiveChild,
+          'text-[#22d3ee] drop-shadow-[0_0_4px_rgba(34,211,238,0.5)]': !isActive && !hasActiveChild,
+        }"
+      />
       <span
         v-if="showBadge"
         class="size-2 -top-px ltr:-right-px rtl:-left-px bg-n-brand absolute rounded-full border border-n-solid-2"
@@ -47,7 +55,7 @@ const count = computed(() =>
     </div>
     <div class="flex items-center gap-1.5 flex-grow min-w-0 flex-1">
       <span
-        class="truncate"
+        class="truncate font-mono tracking-wide"
         :class="{
           'text-body-main': !isActive,
           'font-medium text-sm': isActive || hasActiveChild,

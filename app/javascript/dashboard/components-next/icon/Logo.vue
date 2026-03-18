@@ -22,22 +22,21 @@ const globalConfig = useMapGetter('globalConfig/get');
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <g clip-path="url(#woot-logo-clip-2342424e23u32098)">
-      <path
-        d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z"
-        fill="#2781F6"
-      />
-      <path
-        d="M11.4172 11.4172H7.70831C5.66383 11.4172 4 9.75328 4 7.70828C4 5.66394 5.66383 4 7.70835 4C9.75339 4 11.4172 5.66394 11.4172 7.70828V11.4172Z"
-        fill="white"
-        stroke="white"
-        stroke-width="0.1875"
-      />
-    </g>
+    <rect width="16" height="16" rx="3" fill="#020817" />
     <defs>
-      <clipPath id="woot-logo-clip-2342424e23u32098">
-        <rect width="16" height="16" fill="white" />
-      </clipPath>
+      <linearGradient id="fdt-g" x1="3.5" y1="3" x2="11" y2="13" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#0ea5e9" />
+        <stop offset="1" stop-color="#22d3ee" />
+      </linearGradient>
     </defs>
+    <!-- F vertical bar -->
+    <rect x="3.5" y="3" width="1.5" height="10" fill="url(#fdt-g)" />
+    <!-- F top bar -->
+    <rect x="3.5" y="3" width="7" height="1.5" fill="url(#fdt-g)" />
+    <!-- F middle bar -->
+    <rect x="3.5" y="7" width="5" height="1.5" fill="url(#fdt-g)" />
+    <!-- corner accent dots -->
+    <rect x="12" y="2.5" width="1.5" height="1.5" fill="#22d3ee" opacity="0.6" />
+    <rect x="12" y="12" width="1.5" height="1.5" fill="#22d3ee" opacity="0.4" />
   </svg>
 </template>
