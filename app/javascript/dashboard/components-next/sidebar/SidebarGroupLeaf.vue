@@ -54,7 +54,7 @@ const shouldRenderComponent = computed(() => {
             }"
           />
         </span>
-        <div class="flex-1 truncate min-w-0 text-sm">{{ label }}</div>
+        <div class="flex-1 truncate min-w-0 text-sm font-mono tracking-wide">{{ label }}</div>
       </template>
     </component>
   </Policy>
