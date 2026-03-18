@@ -341,11 +341,6 @@ export default {
               </span>
             </router-link>
           </div>
-          <SimpleDivider
-            v-if="showGoogleOAuth || showSamlLogin"
-            :label="$t('COMMON.OR')"
-            class="uppercase"
-          />
         </div>
         <form class="space-y-5" @submit.prevent="submitFormLogin">
           <FormInput
@@ -400,6 +395,16 @@ export default {
       >
         <Spinner color-scheme="primary" size="" />
       </div>
-    </section>
+
+      <p class="mt-3 text-xs text-center font-mono tracking-widest text-cyan-400/15">
+        © {{ new Date().getFullYear() }} {{ globalConfig.installationName }}
+      </p>
+    </div>
+
+    <!-- HUD Bottom bar -->
+    <div class="absolute bottom-0 left-0 right-0 flex items-center justify-between px-6 py-2 border-t border-cyan-500/10 z-20">
+      <span class="text-xs font-mono text-cyan-400/20 tracking-[0.2em] uppercase">Fluxo Digital Tech</span>
+      <span class="text-xs font-mono text-cyan-400/20 tracking-[0.2em] uppercase">Acesso Autorizado</span>
+    </div>
   </main>
 </template>

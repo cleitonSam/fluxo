@@ -730,7 +730,7 @@ const menuItems = computed(() => {
       closeMobileSidebar,
       { ignore: ['#mobile-sidebar-launcher'] },
     ]"
-    class="bg-n-background flex flex-col text-sm pb-px fixed top-0 ltr:left-0 rtl:right-0 h-full z-40 w-[200px] md:w-auto md:relative md:flex-shrink-0 md:ltr:translate-x-0 md:rtl:translate-x-0 ltr:border-r rtl:border-l border-n-weak"
+    class="bg-n-background flex flex-col text-sm pb-px fixed top-0 ltr:left-0 rtl:right-0 h-full z-40 w-[200px] md:w-auto md:relative md:flex-shrink-0 md:ltr:translate-x-0 md:rtl:translate-x-0 ltr:border-r rtl:border-l border-[rgba(6,182,212,0.2)] shadow-[2px_0_20px_rgba(34,211,238,0.07)]"
     :class="[
       {
         'shadow-lg md:shadow-none': isMobileSidebarOpen,
@@ -741,9 +741,23 @@ const menuItems = computed(() => {
     ]"
     :style="isMobile ? undefined : { width: `${sidebarWidth}px` }"
   >
+    <!-- HUD top corners -->
+    <div class="absolute top-0 ltr:left-0 rtl:right-0 w-3 h-3 border-l-[1.5px] border-t-[1.5px] border-[#22d3ee]/40 pointer-events-none z-10" />
+    <div class="absolute top-0 ltr:right-0 rtl:left-0 w-3 h-3 border-r-[1.5px] border-t-[1.5px] border-[#22d3ee]/40 pointer-events-none z-10" />
+    <!-- HUD status strip -->
+    <div
+      class="flex items-center justify-between px-2.5 pt-1.5 pb-1 border-b border-[rgba(6,182,212,0.1)]"
+      :class="isEffectivelyCollapsed ? 'justify-center' : ''"
+    >
+      <span v-if="!isEffectivelyCollapsed" class="text-[9px] font-mono tracking-[0.2em] text-[#22d3ee]/35 uppercase select-none">FDT//SYS</span>
+      <div class="flex items-center gap-1">
+        <div class="size-1.5 rounded-full bg-[#22d3ee] shadow-[0_0_5px_#22d3ee] animate-pulse" />
+        <span v-if="!isEffectivelyCollapsed" class="text-[9px] font-mono tracking-[0.15em] text-[#22d3ee]/45 uppercase select-none">ONLINE</span>
+      </div>
+    </div>
     <section
       class="grid"
-      :class="isEffectivelyCollapsed ? 'mt-3 mb-6 gap-4' : 'mt-1 mb-4 gap-2'"
+      :class="isEffectivelyCollapsed ? 'mt-2 mb-6 gap-4' : 'mt-1 mb-4 gap-2'"
     >
       <div
         class="flex gap-2 items-center min-w-0"
@@ -778,7 +792,7 @@ const menuItems = computed(() => {
           :to="{ name: 'search' }"
           class="flex gap-2 items-center px-2 py-1 w-full h-7 rounded-lg outline outline-1 outline-n-weak bg-n-button-color transition-all duration-100 ease-out"
         >
-          <span class="flex-shrink-0 i-lucide-search size-4 text-n-slate-10" />
+          <span class="flex-shrink-0 i-lucide-search size-4 text-[#22d3ee] drop-shadow-[0_0_4px_rgba(34,211,238,0.6)]" />
           <span class="flex-grow text-start text-n-slate-10">
             {{ t('COMBOBOX.SEARCH_PLACEHOLDER') }}
           </span>
@@ -794,7 +808,7 @@ const menuItems = computed(() => {
           class="flex items-center justify-center size-8 rounded-lg outline outline-1 outline-n-weak bg-n-button-color transition-all duration-100 ease-out hover:bg-n-alpha-2 dark:hover:bg-n-slate-9/30"
           :title="t('COMBOBOX.SEARCH_PLACEHOLDER')"
         >
-          <span class="i-lucide-search size-4 text-n-slate-11" />
+          <span class="i-lucide-search size-4 text-[#22d3ee] drop-shadow-[0_0_4px_rgba(34,211,238,0.6)]" />
         </RouterLink>
         <ComposeConversation align-position="right" @close="onComposeClose">
           <template #trigger="{ toggle, isOpen }">
@@ -850,8 +864,11 @@ const menuItems = computed(() => {
           isEffectivelyCollapsed
         "
       />
+      <!-- HUD bottom corners -->
+      <div class="absolute bottom-0 ltr:left-0 rtl:right-0 w-3 h-3 border-l-[1.5px] border-b-[1.5px] border-[#22d3ee]/40 pointer-events-none z-10" />
+      <div class="absolute bottom-0 ltr:right-0 rtl:left-0 w-3 h-3 border-r-[1.5px] border-b-[1.5px] border-[#22d3ee]/40 pointer-events-none z-10" />
       <div
-        class="px-1 py-1.5 flex-shrink-0 flex w-full z-50 gap-2 items-center border-t border-n-weak shadow-[0px_-2px_4px_0px_rgba(27,28,29,0.02)]"
+        class="px-1 py-1.5 flex-shrink-0 flex w-full z-50 gap-2 items-center border-t border-[rgba(6,182,212,0.12)] shadow-[0px_-4px_12px_rgba(34,211,238,0.05)]"
         :class="isEffectivelyCollapsed ? 'justify-center' : 'justify-between'"
       >
         <SidebarProfileMenu

@@ -130,7 +130,9 @@ export default {
 </script>
 
 <template>
-  <div class="flex flex-grow overflow-hidden text-n-slate-12">
+  <div class="relative flex flex-grow overflow-hidden text-n-slate-12">
+    <!-- Scanline overlay global -->
+    <div class="fixed inset-0 pointer-events-none z-[9998] bg-[repeating-linear-gradient(0deg,transparent,transparent_3px,rgba(0,0,0,0.04)_3px,rgba(0,0,0,0.04)_4px)]" />
     <NextSidebar
       :is-mobile-sidebar-open="isMobileSidebarOpen"
       @toggle-account-modal="toggleAccountModal"
