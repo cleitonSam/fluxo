@@ -220,9 +220,21 @@ export default {
 
 <template>
   <main
-    class="flex flex-col w-full min-h-screen py-20 bg-n-brand/5 dark:bg-n-background sm:px-6 lg:px-8"
+    class="relative isolate flex w-full min-h-screen flex-col overflow-hidden bg-slate-950 px-4 py-20 sm:px-6 lg:px-8"
   >
-    <section class="max-w-5xl mx-auto">
+    <div
+      class="pointer-events-none absolute inset-x-0 top-0 -z-10 flex justify-center"
+    >
+      <div class="h-72 w-72 rounded-full bg-cyan-400/25 blur-3xl" />
+    </div>
+    <div
+      class="pointer-events-none absolute inset-y-24 left-0 -z-10 h-80 w-80 rounded-full bg-blue-500/20 blur-3xl"
+    />
+    <div
+      class="pointer-events-none absolute bottom-0 right-0 -z-10 h-96 w-96 rounded-full bg-sky-400/15 blur-3xl"
+    />
+
+    <section class="mx-auto max-w-5xl">
       <img
         :src="globalConfig.logo"
         :alt="globalConfig.installationName"
@@ -234,12 +246,15 @@ export default {
         :alt="globalConfig.installationName"
         class="hidden w-auto h-8 mx-auto dark:block"
       />
-      <h2 class="mt-6 text-3xl font-medium text-center text-n-slate-12">
+      <h2 class="mt-6 text-center text-3xl font-semibold text-white">
         {{ replaceInstallationName($t('LOGIN.TITLE')) }}
       </h2>
-      <p v-if="showSignupLink" class="mt-3 text-sm text-center text-n-slate-11">
+      <p v-if="showSignupLink" class="mt-3 text-center text-sm text-slate-300">
         {{ $t('COMMON.OR') }}
-        <router-link to="auth/signup" class="lowercase text-link text-n-brand">
+        <router-link
+          to="auth/signup"
+          class="text-link lowercase text-cyan-300 hover:text-cyan-200"
+        >
           {{ $t('LOGIN.CREATE_NEW_ACCOUNT') }}
         </router-link>
       </p>
@@ -257,7 +272,7 @@ export default {
     <!-- Regular Login Section -->
     <section
       v-else
-      class="bg-white shadow sm:mx-auto mt-11 sm:w-full sm:max-w-lg dark:bg-n-solid-2 p-11 sm:shadow-lg sm:rounded-lg"
+      class="mt-11 border border-cyan-400/20 bg-slate-900/80 p-8 shadow-2xl shadow-cyan-500/10 backdrop-blur-xl sm:mx-auto sm:w-full sm:max-w-lg sm:rounded-2xl sm:p-11"
       :class="{
         'mb-8 mt-15': !showGoogleOAuth,
         'animate-wiggle': loginApi.hasErrored,
@@ -269,13 +284,10 @@ export default {
           <div v-if="showSamlLogin" class="text-center">
             <router-link
               to="/app/login/sso"
-              class="inline-flex justify-center w-full px-4 py-3 items-center bg-n-background dark:bg-n-solid-3 rounded-md shadow-sm ring-1 ring-inset ring-n-container dark:ring-n-container focus:outline-offset-0 hover:bg-n-alpha-2 dark:hover:bg-n-alpha-2"
+              class="inline-flex w-full items-center justify-center rounded-xl border border-cyan-400/20 bg-slate-950/70 px-4 py-3 shadow-lg shadow-cyan-500/5 ring-1 ring-inset ring-cyan-300/10 transition hover:border-cyan-300/40 hover:bg-slate-900 focus:outline-offset-0"
             >
-              <Icon
-                icon="i-lucide-lock-keyhole"
-                class="size-5 text-n-slate-11"
-              />
-              <span class="ml-2 text-base font-medium text-n-slate-12">
+              <Icon icon="i-lucide-lock-keyhole" class="size-5 text-cyan-300" />
+              <span class="ml-2 text-base font-medium text-slate-100">
                 {{ $t('LOGIN.SAML.LABEL') }}
               </span>
             </router-link>
@@ -325,7 +337,7 @@ export default {
             lg
             type="submit"
             data-testid="submit_button"
-            class="w-full"
+            class="w-full shadow-lg shadow-cyan-500/20 ring-1 ring-cyan-300/20"
             :tabindex="3"
             :label="$t('LOGIN.SUBMIT')"
             :disabled="loginApi.showLoading"
