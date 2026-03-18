@@ -101,17 +101,18 @@ const STYLE_CONFIG = {
   colors: {
     blue: {
       solid:
-        'bg-n-brand text-white hover:enabled:brightness-110 focus-visible:brightness-110 outline-transparent',
+        'bg-gradient-to-r from-sky-600 to-cyan-500 text-white shadow-[0_2px_8px_rgba(34,211,238,0.25)] hover:enabled:shadow-[0_0_20px_rgba(34,211,238,0.6)] focus-visible:shadow-[0_0_20px_rgba(34,211,238,0.6)] hover:enabled:brightness-110 outline-transparent',
       faded:
-        'bg-n-brand/10 text-n-blue-11 hover:enabled:bg-n-brand/20 focus-visible:bg-n-brand/20 outline-transparent',
-      outline: 'text-n-blue-11 outline-n-brand',
+        'bg-cyan-500/10 text-cyan-400 hover:enabled:bg-cyan-500/20 focus-visible:bg-cyan-500/20 outline-transparent',
+      outline:
+        'text-cyan-400 outline-cyan-500/50 hover:enabled:bg-cyan-500/10 focus-visible:bg-cyan-500/10 hover:enabled:shadow-[0_0_10px_rgba(34,211,238,0.25)]',
       ghost:
-        'text-n-blue-11 hover:enabled:bg-n-alpha-2 focus-visible:bg-n-alpha-2 outline-transparent',
-      link: 'text-n-blue-11 hover:enabled:underline focus-visible:underline outline-transparent',
+        'text-cyan-400 hover:enabled:bg-cyan-500/10 focus-visible:bg-cyan-500/10 outline-transparent',
+      link: 'text-cyan-400 hover:enabled:underline focus-visible:underline outline-transparent',
     },
     ruby: {
       solid:
-        'bg-n-ruby-9 text-white hover:enabled:bg-n-ruby-10 focus-visible:bg-n-ruby-10 outline-transparent',
+        'bg-n-ruby-9 text-white hover:enabled:bg-n-ruby-10 focus-visible:bg-n-ruby-10 hover:enabled:shadow-[0_0_14px_rgba(239,68,68,0.4)] outline-transparent',
       faded:
         'bg-n-ruby-9/10 text-n-ruby-11 hover:enabled:bg-n-ruby-9/20 focus-visible:bg-n-ruby-9/20 outline-transparent',
       outline:
@@ -133,12 +134,12 @@ const STYLE_CONFIG = {
     },
     slate: {
       solid:
-        'bg-n-button-color dark:hover:enabled:bg-n-solid-2 dark:focus-visible:bg-n-solid-2 hover:enabled:bg-n-alpha-2 focus-visible:bg-n-alpha-2 text-n-slate-12 outline-n-container',
+        'bg-n-button-color dark:hover:enabled:bg-n-solid-2 dark:focus-visible:bg-n-solid-2 hover:enabled:bg-n-alpha-2 focus-visible:bg-n-alpha-2 text-n-slate-12 outline-n-container hover:enabled:outline-cyan-500/30 hover:enabled:shadow-[0_0_8px_rgba(34,211,238,0.1)]',
       faded:
         'bg-n-slate-9/10 text-n-slate-12 hover:enabled:bg-n-slate-9/20 focus-visible:bg-n-slate-9/20 outline-transparent',
       outline:
-        'text-n-slate-11 outline-n-strong hover:enabled:bg-n-slate-9/10 focus-visible:bg-n-slate-9/10',
-      link: 'text-n-slate-11 hover:enabled:text-n-slate-12 focus-visible:text-n-slate-12 hover:enabled:underline focus-visible:underline outline-transparent',
+        'text-n-slate-11 outline-n-strong hover:enabled:bg-n-slate-9/10 focus-visible:bg-n-slate-9/10 hover:enabled:outline-cyan-500/30',
+      link: 'text-n-slate-11 hover:enabled:text-cyan-400 focus-visible:text-cyan-400 hover:enabled:underline focus-visible:underline outline-transparent',
       ghost:
         'text-n-slate-12 hover:enabled:bg-n-alpha-2 focus-visible:bg-n-alpha-2 outline-transparent',
     },
@@ -181,9 +182,9 @@ const STYLE_CONFIG = {
     lg: 'text-base',
   },
   clickAnimation: {
-    xs: 'active:enabled:scale-[0.97]',
-    sm: 'active:enabled:scale-[0.97]',
-    md: 'active:enabled:scale-[0.98]',
+    xs: 'active:enabled:scale-[0.96]',
+    sm: 'active:enabled:scale-[0.96]',
+    md: 'active:enabled:scale-[0.97]',
     lg: 'active:enabled:scale-[0.98]',
   },
   justify: {
@@ -191,7 +192,7 @@ const STYLE_CONFIG = {
     center: 'justify-center',
     end: 'justify-end',
   },
-  base: 'inline-flex items-center min-w-0 gap-2 transition-all duration-100 ease-out border-0 rounded-lg outline-1 outline disabled:opacity-50',
+  base: 'inline-flex items-center min-w-0 gap-2 transition-all duration-200 ease-out border-0 rounded-lg outline-1 outline disabled:opacity-40',
 };
 
 const variantClasses = computed(() => {
