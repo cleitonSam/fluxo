@@ -1,28 +1,28 @@
 {
   "LOGIN": {
-    "TITLE": "Login to Chatwoot",
+    "TITLE": "Login to Fluxo Digital Tech",
     "EMAIL": {
-      "LABEL": "Email",
-      "PLACEHOLDER": "example{'@'}companyname.com",
-      "ERROR": "Please enter a valid email address"
+      "LABEL": "E-mail",
+      "PLACEHOLDER": "exemplo{'@'}suaempresa.com.br",
+      "ERROR": "Por favor, insira um endereço de e-mail válido"
     },
     "PASSWORD": {
-      "LABEL": "Password",
-      "PLACEHOLDER": "Password"
+      "LABEL": "Senha",
+      "PLACEHOLDER": "Senha"
     },
     "API": {
-      "SUCCESS_MESSAGE": "Login successful",
-      "ERROR_MESSAGE": "Could not connect to Woot server. Please try again.",
-      "UNAUTH": "Username or password is incorrect. Please try again."
+      "SUCCESS_MESSAGE": "Login realizado com sucesso",
+      "ERROR_MESSAGE": "Não foi possível conectar ao servidor. Tente novamente.",
+      "UNAUTH": "E-mail ou senha incorretos. Tente novamente."
     },
     "OAUTH": {
-      "GOOGLE_LOGIN": "Login with Google",
-      "BUSINESS_ACCOUNTS_ONLY": "Please use your company email address to login",
-      "NO_ACCOUNT_FOUND": "We couldn't find an account for your email address."
+      "GOOGLE_LOGIN": "Entrar com Google",
+      "BUSINESS_ACCOUNTS_ONLY": "Por favor, use o e-mail da sua empresa para entrar",
+      "NO_ACCOUNT_FOUND": "Não encontramos uma conta para este e-mail."
     },
-    "FORGOT_PASSWORD": "Forgot your password?",
-    "CREATE_NEW_ACCOUNT": "Create a new account",
-    "SUBMIT": "Login",
+    "FORGOT_PASSWORD": "Esqueceu sua senha?",
+    "CREATE_NEW_ACCOUNT": "Criar uma nova conta",
+    "SUBMIT": "Entrar",
     "SAML": {
       "LABEL": "Login via SSO",
       "TITLE": "Initiate Single Sign-on (SSO)",
